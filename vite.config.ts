@@ -34,7 +34,7 @@ const fontsConfig = VitePluginFonts({
 })
 
 const svgIconsConfig = createSvgIconsPlugin({
-  iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+  iconDirs: [path.resolve(process.cwd(), 'src/shared/assets/icons')],
   symbolId: 'icon-[dir]-[name]',
   inject: 'body-first',
   customDomId: '__svg__icons__dom__',

@@ -14,8 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import BaseHeader from '@/widgets/BaseLayout/BaseHeader/BaseHeader.vue'
-import BaseSidebar from '@/widgets/BaseLayout/BaseSidebar/BaseSidebar.vue'
+import { BaseSidebar, BaseHeader } from '@/widgets/BaseLayout'
 </script>
 
 <style lang="scss" scoped>

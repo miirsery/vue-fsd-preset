@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import type { AxiosResponseType } from '@/shared/api/AxiosInstance/AxiosInstance.type'
+import type { AxiosResponseType } from '@/shared/api/AxiosService/AxiosInstance.type'
 
 export class AxiosService {
   private axiosInstance!: AxiosInstance

@@ -1,4 +1,4 @@
-export const useDeboucne = <T extends unknown[]>(
+export const useDebounce = <T extends unknown[]>(
   callback: (...args: T) => void,
   timeout: number
 ): ((...args: T) => void) => {
