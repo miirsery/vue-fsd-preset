@@ -10,7 +10,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '',
         name: 'HomePage',
-        component: () => import('@/pages/HomePage/HomePage.vue'),
+        component: () => import('@/pages/HomePage/components/HomePage.vue'),
       },
     ],
   },

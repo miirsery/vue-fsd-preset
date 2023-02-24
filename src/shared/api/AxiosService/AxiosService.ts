@@ -57,7 +57,7 @@ export class AxiosService {
     )
   }
 
-  protected async axiosCall<T = any>(config: AxiosRequestConfig): AxiosResponseType<T> {
+  protected async axiosCall<T = unknown>(config: AxiosRequestConfig): AxiosResponseType<T> {
     try {
       const { data } = await this.axiosInstance.request<T>(config)
 

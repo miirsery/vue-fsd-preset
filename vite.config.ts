@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 import path from 'path'
 
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -10,6 +10,9 @@ import EnvironmentPlugin from 'vite-plugin-environment'
 import EslintPlugin from 'vite-plugin-eslint'
 import StyleLintPlugin from 'vite-plugin-stylelint'
 import VitePluginFonts from 'vite-plugin-fonts'
+
+// TODO: Разобраться с ошибкой импортов
+// import { API_URL } from './src/shared/config'
 
 const styleLintConfig = StyleLintPlugin({
   files: ['src/**/*.{vue,scss}'],
@@ -42,18 +45,32 @@ const svgIconsConfig = createSvgIconsPlugin({
 
 const envConfig = EnvironmentPlugin('all', { prefix: 'VITE_' })
 
-export default defineConfig({
-  plugins: [vue(), styleLintConfig, eslintConfig, fontsConfig, svgIconsConfig, envConfig],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@use "@/app/styles/resources" as *;',
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    plugins: [vue(), styleLintConfig, eslintConfig, fontsConfig, svgIconsConfig, envConfig],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/app/styles/resources" as *;',
+        },
       },
     },
-  },
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
-  },
+    server: {
+      proxy: {
+        '/api': {
+          target: env.VITE_BASE_URL,
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
+    },
+  }
 })

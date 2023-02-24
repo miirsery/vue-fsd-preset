@@ -1,3 +1,1 @@
-import { AxiosService } from '@/shared/api/AxiosService/AxiosService'
-
-export { AxiosService }
+export * as AxiosService from '@/shared/api/AxiosService/AxiosService'
