@@ -66,6 +66,7 @@ module.exports = {
     ],
 
     'vue/no-v-html': 'off',
+    'vue/multi-word-component-names': 'off',
     'vue/require-default-prop': 'off',
     'vue/no-side-effects-in-computed-properties': 'off',
     'vue/object-curly-spacing': ['error', 'always', { objectsInObjects: true }],

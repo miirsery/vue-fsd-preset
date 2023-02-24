@@ -1,4 +1,4 @@
-@use './src/styles/resources/variables/fonts' as *;
+@use '../variables/fonts' as *;
 
 @mixin font($size: 16px, $line-height: 20px, $weight: 400, $style: normal) {
   font-family: $font--main;
