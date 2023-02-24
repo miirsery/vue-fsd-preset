@@ -1,5 +1,9 @@
 # todo-app
 
+## Feature Sliced Design
+![image](https://user-images.githubusercontent.com/57665901/221094763-9b05a7e0-2a55-40f3-ad02-d77f1dc7fa07.png)
+
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
