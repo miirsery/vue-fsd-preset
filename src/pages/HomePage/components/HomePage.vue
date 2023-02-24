@@ -5,6 +5,7 @@
 
     <div class="d-f ai-c">
       <div>Hello</div>
+      <div>Hello two</div>
       <base-icon name="share" width="24" height="24" />
     </div>
 
